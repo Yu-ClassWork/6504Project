@@ -43,10 +43,10 @@ const int visited = 1
 
 module UAV
 	uav: [0..N] init 0;
-	uav_battery: [0..battery_levels] init 0;
+	uav_battery: [-1..battery_levels] init 0;
 	
 	// TODO: NEED TO SEE WHAT I HAVE TO ADD TO UAV AGENT
-	[] uav = site0 & uav_battery > D01 -> uav' = site1 & uav_battery' = uav_battery-D01;
+	[] uav = site0 & uav_battery > D01 -> 0.1:(uav' = site1 & uav_battery' = uav_battery-D01-1) + 0.1:(uav' = site1 & uav_battery' = uav-D01+1) + 0.8:(uav' = site1 & uav_battery' = uav-D01);
 	[] uav = site0 & uav_battery > D02 -> uav' = site2 & uav_battery' = uav_battery-D02;
 	[] uav = site0 & uav_battery > D03 -> uav' = site3 & uav_battery' = uav_battery-D03;
 	[] uav = site0 & uav_battery > D04 -> uav' = site4 & uav_battery' = uav_battery-D04;
@@ -66,6 +66,9 @@ module UAV
 	[] uav = site4 & uav_battery > D42 -> uav' = site2 & uav_battery' = uav_battery-D42;
 	[] uav = site4 & uav_battery > D43 -> uav' = site3 & uav_battery' = uav_battery-D43;
 //	[] uav = site4 & uav_battery > D44 -> uav' = site4 & uav_battery' = uav_battery-D44;
+
+	// TODO: CHECK TO SEE IF BATTERY LEVEL IS -1 THEN YOU GIVE NEGATIVE INFINITY REWARDS
+	// TODO: NEED TO ADD THE ACTION OF RECHARGIN AND GIVE NEGATIVE 1 REWARDS
 endmodule
 
 
