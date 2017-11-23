@@ -69,6 +69,13 @@ module UAV
 
 	// TODO: CHECK TO SEE IF BATTERY LEVEL IS -1 THEN YOU GIVE NEGATIVE INFINITY REWARDS
 	// TODO: NEED TO ADD THE ACTION OF RECHARGIN AND GIVE NEGATIVE 1 REWARDS
+	// RECHARGE
+	[] uav_battery > -1 -> uav_battery' = lvl1
+	[] uav_battery > -1 -> uav_battery' = lvl2
+	[] uav_battery > -1 -> uav_battery' = lvl3
+	[] uav_battery > -1 -> uav_battery' = lvl4
+	[] uav_battery > -1 -> uav_battery' = lvl5
+	[] uav_battery > -1 -> uav_battery' = lvl6
 endmodule
 
 
