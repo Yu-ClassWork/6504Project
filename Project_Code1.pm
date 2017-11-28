@@ -16,7 +16,7 @@ const int D24 = 4;
 const int D34 = 2;
 
 // SITES
-const int N = 4 // number of sites\
+const int N = 4; // number of sites\
 const int site0 = 0;
 const int site1 = 1;
 const int site2 = 2;
@@ -37,31 +37,31 @@ const int speed_UAV = 2; // (time/distnace)
 const int battery_consumption = 1; // (battery drop/time)
 
 // SITE INFORMATION
-const int notvisited = 0
-const int visited = 1
+const int notvisited = 0;
+const int visited = 1;
 
 module UAV
 	uav: [0..N] init 0;
 	// TODO: NEED TO SEE WHAT I HAVE TO ADD TO UAV AGENT
-	[] uav = site0 -> uav = site1;
-	[] uav = site0 -> uav = site2;
-	[] uav = site0 -> uav = site3;
-	[] uav = site0 -> uav = site4;
+	[] uav = site0 -> (uav' = site1);
+	[] uav = site0 -> (uav' = site2);
+	[] uav = site0 -> (uav' = site3);
+	[] uav = site0 -> (uav' = site4);
 //	[] uav = site1 -> uav = site1;
-	[] uav = site1 -> uav = site2;
-	[] uav = site1 -> uav = site3;
-	[] uav = site1 -> uav = site4;
-	[] uav = site2 -> uav = site1;
+	[] uav = site1 -> (uav' = site2);
+	[] uav = site1 -> (uav' = site3);
+	[] uav = site1 -> (uav' = site4);
+	[] uav = site2 -> (uav' = site1);
 //	[] uav = site2 -> uav = site2;
-	[] uav = site2 -> uav = site3;
-	[] uav = site2 -> uav = site4;
-	[] uav = site3 -> uav = site1;
-	[] uav = site3 -> uav = site2;
+	[] uav = site2 -> (uav' = site3);
+	[] uav = site2 -> (uav' = site4);
+	[] uav = site3 -> (uav' = site1);
+	[] uav = site3 -> (uav' = site2);
 //	[] uav = site3 -> uav = site3;
-	[] uav = site3 -> uav = site4;
-	[] uav = site4 -> uav = site1;
-	[] uav = site4 -> uav = site2;
-	[] uav = site4 -> uav = site3;
+	[] uav = site3 -> (uav' = site4);
+	[] uav = site4 -> (uav' = site1);
+	[] uav = site4 -> (uav' = site2);
+	[] uav = site4 -> (uav' = site3);
 //	[] uav = site4 -> uav = site4;
 endmodule
 
@@ -69,7 +69,7 @@ endmodule
 module site_one
 	s1: bool init false;
 	
-	[] s1 = false & uav = site1 -> s1 = true
+	[] s1 = false & uav = site1 -> (s1' = true);
 endmodule
 
 // duplicate site modules
@@ -78,7 +78,7 @@ module site_three = site_one[s1 = s3, site1 = site3] endmodule
 module site_four = site_one[s1 = s4, site1 = site4] endmodule
 
 // reward for all sites visited or not
-rewards "visited sites"
+rewards "visitedSites"
 	// TODO: NEED TO MAKE SURE THAT YOU ONLY COLLECT REWARDS ONCE
 	// MAY NOT BE NEEDED
 	s1 = true : 1; 
