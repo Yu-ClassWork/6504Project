@@ -45,26 +45,26 @@ module UAV
 	uav: [0..N] init 0;
 	uav_battery: [-1..battery_levels] init 0;
 	
-	[] uav = site0 & uav_battery > D01 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D01-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D01+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D01);
-	[] uav = site0 & uav_battery > D02 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D02-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D02+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D02);
-	[] uav = site0 & uav_battery > D03 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D03-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D03+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D03);
-	[] uav = site0 & uav_battery > D04 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D04-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D04+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D04);
-//	[] uav = site1 & uav_battery > D11 -> 0.1:(uav' = site1 & uav_battery' = uav_battery-D11-1) + 0.1:(uav' = site1 & uav_battery' = uav-D11+1) + 0.8:(uav' = site1 & uav_battery' = uav-D11);
-	[] uav = site1 & uav_battery > D12 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D12-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D12+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D12);
-	[] uav = site1 & uav_battery > D13 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D13-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D13+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D13);
-	[] uav = site1 & uav_battery > D14 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D14-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D14+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D14);
-	[] uav = site2 & uav_battery > D21 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D21-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D21+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D21);
-//	[] uav = site2 & uav_battery > D22 -> 0.1:(uav' = site2 & uav_battery' = uav_battery-D22-1) + 0.1:(uav' = site2 & uav_battery' = uav-D22+1) + 0.8:(uav' = site2 & uav_battery' = uav-D22);
-	[] uav = site2 & uav_battery > D23 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D23-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D23+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D23);
-	[] uav = site2 & uav_battery > D24 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D24-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D24+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D24);
-	[] uav = site3 & uav_battery > D31 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D31-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D31+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D31);
-	[] uav = site3 & uav_battery > D32 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D32-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D32+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D32);
-//	[] uav = site3 & uav_battery > D33 -> 0.1:(uav' = site3 & uav_battery' = uav_battery-D33-1) + 0.1:(uav' = site3 & uav_battery' = uav-D33+1) + 0.8:(uav' = site3 & uav_battery' = uav-D33);
-	[] uav = site3 & uav_battery > D34 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D34-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D34+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D34);
-	[] uav = site4 & uav_battery > D41 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D41-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D41+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D41);
-	[] uav = site4 & uav_battery > D42 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D42-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D42+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D42);
-	[] uav = site4 & uav_battery > D43 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D43-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D43+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D43);
-//	[] uav = site4 & uav_battery > D44 -> 0.1:(uav' = site4 & uav_battery' = uav_battery-D44-1) + 0.1:(uav' = site4 & uav_battery' = uav-D44+1) + 0.8:(uav' = site4 & uav_battery' = uav-D44);
+	[] uav = site0 & uav_battery > D01 & uav_battery < battery_levels-D01 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D01-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D01+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D01);
+	[] uav = site0 & uav_battery > D02 & uav_battery < battery_levels-D02 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D02-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D02+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D02);
+	[] uav = site0 & uav_battery > D03 & uav_battery < battery_levels-D03 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D03-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D03+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D03);
+	[] uav = site0 & uav_battery > D04 & uav_battery < battery_levels-D04 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D04-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D04+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D04);
+//	[] uav = site1 & uav_battery > D11 & uav_battery < battery_levels-D11 -> 0.1:(uav' = site1 & uav_battery' = uav_battery-D11-1) + 0.1:(uav' = site1 & uav_battery' = uav-D11+1) + 0.8:(uav' = site1 & uav_battery' = uav-D11);
+	[] uav = site1 & uav_battery > D12 & uav_battery < battery_levels-D12 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D12-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D12+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D12);
+	[] uav = site1 & uav_battery > D13 & uav_battery < battery_levels-D13 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D13-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D13+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D13);
+	[] uav = site1 & uav_battery > D14 & uav_battery < battery_levels-D14 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D14-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D14+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D14);
+	[] uav = site2 & uav_battery > D12 & uav_battery < battery_levels-D12 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D12-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D12+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D12);
+//	[] uav = site2 & uav_battery > D22 & uav_battery < battery_levels-D22 -> 0.1:(uav' = site2 & uav_battery' = uav_battery-D22-1) + 0.1:(uav' = site2 & uav_battery' = uav-D22+1) + 0.8:(uav' = site2 & uav_battery' = uav-D22);
+	[] uav = site2 & uav_battery > D23 & uav_battery < battery_levels-D23 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D23-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D23+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D23);
+	[] uav = site2 & uav_battery > D24 & uav_battery < battery_levels-D24 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D24-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D24+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D24);
+	[] uav = site3 & uav_battery > D13 & uav_battery < battery_levels-D13 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D13-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D13+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D13);
+	[] uav = site3 & uav_battery > D23 & uav_battery < battery_levels-D23 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D23-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D23+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D23);
+//	[] uav = site3 & uav_battery > D33 & uav_battery < battery_levels-D33 -> 0.1:(uav' = site3 & uav_battery' = uav_battery-D33-1) + 0.1:(uav' = site3 & uav_battery' = uav-D33+1) + 0.8:(uav' = site3 & uav_battery' = uav-D33);
+	[] uav = site3 & uav_battery > D34 & uav_battery < battery_levels-D34 -> 0.1:(uav' = site4) & (uav_battery' = uav_battery-D34-1) + 0.1:(uav' = site4) & (uav_battery' = uav-D34+1) + 0.8:(uav' = site4) & (uav_battery' = uav-D34);
+	[] uav = site4 & uav_battery > D14 & uav_battery < battery_levels-D14 -> 0.1:(uav' = site1) & (uav_battery' = uav_battery-D14-1) + 0.1:(uav' = site1) & (uav_battery' = uav-D14+1) + 0.8:(uav' = site1) & (uav_battery' = uav-D14);
+	[] uav = site4 & uav_battery > D24 & uav_battery < battery_levels-D24 -> 0.1:(uav' = site2) & (uav_battery' = uav_battery-D24-1) + 0.1:(uav' = site2) & (uav_battery' = uav-D24+1) + 0.8:(uav' = site2) & (uav_battery' = uav-D24);
+	[] uav = site4 & uav_battery > D34 & uav_battery < battery_levels-D34 -> 0.1:(uav' = site3) & (uav_battery' = uav_battery-D34-1) + 0.1:(uav' = site3) & (uav_battery' = uav-D34+1) + 0.8:(uav' = site3) & (uav_battery' = uav-D34);
+//	[] uav = site4 & uav_battery > D44 & uav_battery < battery_levels-D44 -> 0.1:(uav' = site4 & uav_battery' = uav_battery-D44-1) + 0.1:(uav' = site4 & uav_battery' = uav-D44+1) + 0.8:(uav' = site4 & uav_battery' = uav-D44);
 
 	// TODO: CHECK TO SEE IF BATTERY LEVEL IS -1 THEN YOU GIVE NEGATIVE INFINITY REWARDS
 	// TODO: NEED TO ADD THE ACTION OF RECHARGIN AND GIVE NEGATIVE 1 REWARDS
