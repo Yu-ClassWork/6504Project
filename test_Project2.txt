@@ -1,0 +1,12 @@
+PRISM
+=====
+
+Version: 4.4.beta
+Date: Wed Nov 29 21:09:45 EST 2017
+Hostname: klyu
+Memory limits: cudd=1g, java(heap)=910.5m
+Command line: prism test_Project2.pm -pctl 'Rmin=? [F "done"]' -exportadv policy.txt -s -exportstates states.txt -m
+
+Parsing model file "test_Project2.pm"...
+
+Error: File "test_Project2.pm" not found.
