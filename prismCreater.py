@@ -1,7 +1,7 @@
 import numpy as np
 
-vertices = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]  #array of vertices
-numVertices = 30 #number of vertices
+vertices = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]  #array of vertices
+numVertices =15 #number of vertices
 type = 'mdp'    #type of Prism model being made
 lowCost = 2     #minimum distance cost
 highCost = 4    #maximum distance cost
@@ -11,8 +11,8 @@ speedUAV = 1    #UAV travel speed (time/distance)
 speedUGV = 2    #UGV travel speed (time/distance)
 filename = 'constants.pm'    #filename
 file = open(filename,"w")
-wrong = 0.1
-right = 0.8
+wrong = 0.15
+right = 0.7
 
 #file.write(type + '\n')
 #Constants
