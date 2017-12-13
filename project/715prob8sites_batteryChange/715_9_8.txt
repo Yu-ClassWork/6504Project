@@ -1,0 +1,163 @@
+PRISM
+=====
+
+Version: 4.4.beta
+Date: Tue Dec 12 18:41:47 EST 2017
+Hostname: klyu
+Memory limits: cudd=1g, java(heap)=910.5m
+Command line: prism Project_Code2.pm -pctl 'multi(R{"totalRewards"}max=? [C], R{"negatives"}min=? [C])' -exportadv policy.txt -s -exportstates states.txt -s
+
+Parsing model file "Project_Code2.pm"...
+
+1 property:
+(1) multi(R{"totalRewards"}max=? [ C ], R{"negatives"}min=? [ C ])
+
+Type:        MDP
+Modules:     UAV site_one site_two site_three site_four site_five site_six site_seven site_eight site_nine 
+Variables:   uav uav_battery s1 s2 s3 s4 s5 s6 s7 s8 s9 
+
+Building model...
+
+Computing reachable states...
+
+Reachability (BFS): 22 iterations in 0.04 seconds (average 0.001636, setup 0.00)
+
+Time for model construction: 0.077 seconds.
+
+Warning: Deadlocks detected and fixed in 14080 states
+
+Type:        MDP
+States:      71680 (1 initial)
+Transitions: 1474816
+Choices:     645376
+
+Transition matrix: 1394 nodes (4 terminal), 1474816 minterms, vars: 18r/18c/14nd
+
+Exporting list of reachable states in plain text format to file "states.txt"...
+
+---------------------------------------------------------------------
+
+Model checking: multi(R{"totalRewards"}max=? [ C ], R{"negatives"}min=? [ C ])
+
+Warning: Disabling Prob1 since this is needed for adversary generation
+Total time for product construction: 0.0 seconds.
+
+States:      71680 (1 initial)
+Transitions: 1474816
+Choices:     645376
+
+Transition matrix: 1394 nodes (4 terminal), 1474816 minterms, vars: 18r/18c/14nd
+
+Prob0A: 1 iterations in 0.00 seconds (average 0.000000, setup 0.00)
+
+yes = 0, no = 0, maybe = 71680
+
+Computing remaining probabilities...
+Engine: Sparse
+Optimising weighted sum for reward objective 1/2: weights (1.0, 0.0)
+Iterative method: 24 iterations in 0.50 seconds (average 0.020833, setup 0.00)
+Optimal value for weights [1.000000,0.000000] from initial state: 450.000000
+Computed point: (450.0, -2.145103987578124)
+Optimising weighted sum for reward objective 2/2: weights (0.0, 1.0)
+Iterative method: 16 iterations in 0.33 seconds (average 0.020500, setup 0.00)
+Optimal value for weights [0.000000,1.000000] from initial state: 0.000000
+Computed point: (189.5774319160156, 0.0)
+Optimising weighted sum of objectives: weights (0.008169718574468979, 0.991830281425531)
+Iterative method: 23 iterations in 0.52 seconds (average 0.022609, setup 0.00)
+Optimal value for weights [0.008170,0.991830] from initial state: 2.009687
+
+Adversary written to file "policy1.txt".
+Optimising weighted sum of objectives: weights (0.005588234832355572, 0.9944117651676444)
+Iterative method: 22 iterations in 0.51 seconds (average 0.023091, setup 0.00)
+Optimal value for weights [0.005588,0.994412] from initial state: 1.081227
+
+Adversary written to file "policy2.txt".
+Optimising weighted sum of objectives: weights (0.0136545816520792, 0.9863454183479208)
+Iterative method: 23 iterations in 0.53 seconds (average 0.022957, setup 0.00)
+Optimal value for weights [0.013655,0.986345] from initial state: 4.214392
+
+Adversary written to file "policy3.txt".
+Optimising weighted sum of objectives: weights (0.005397835853702053, 0.994602164146298)
+Iterative method: 22 iterations in 0.51 seconds (average 0.023091, setup 0.00)
+Optimal value for weights [0.005398,0.994602] from initial state: 1.026431
+
+Adversary written to file "policy4.txt".
+Optimising weighted sum of objectives: weights (0.005929695073217284, 0.9940703049267827)
+Iterative method: 22 iterations in 0.56 seconds (average 0.025273, setup 0.00)
+Optimal value for weights [0.005930,0.994070] from initial state: 1.199002
+
+Adversary written to file "policy5.txt".
+Optimising weighted sum of objectives: weights (0.010822225667192062, 0.989177774332808)
+Iterative method: 23 iterations in 0.54 seconds (average 0.023304, setup 0.00)
+Optimal value for weights [0.010822,0.989178] from initial state: 3.010320
+
+Adversary written to file "policy6.txt".
+Optimising weighted sum of objectives: weights (0.023697005170479717, 0.9763029948295203)
+Iterative method: 24 iterations in 0.61 seconds (average 0.025333, setup 0.00)
+Optimal value for weights [0.023697,0.976303] from initial state: 8.665909
+
+Adversary written to file "policy7.txt".
+Optimising weighted sum of objectives: weights (0.005597366718827141, 0.994402633281173)
+Iterative method: 22 iterations in 0.51 seconds (average 0.023273, setup 0.00)
+Optimal value for weights [0.005597,0.994403] from initial state: 1.084005
+
+Adversary written to file "policy8.txt".
+Optimising weighted sum of objectives: weights (0.0065592545078553685, 0.9934407454921446)
+Iterative method: 22 iterations in 0.52 seconds (average 0.023818, setup 0.00)
+Optimal value for weights [0.006559,0.993441] from initial state: 1.422079
+
+Adversary written to file "policy9.txt".
+Optimising weighted sum of objectives: weights (0.010115492411232984, 0.989884507588767)
+Iterative method: 23 iterations in 0.54 seconds (average 0.023304, setup 0.00)
+Optimal value for weights [0.010115,0.989885] from initial state: 2.735410
+
+Adversary written to file "policy10.txt".
+Optimising weighted sum of objectives: weights (0.011595715280579523, 0.9884042847194205)
+Iterative method: 23 iterations in 0.53 seconds (average 0.022957, setup 0.00)
+Optimal value for weights [0.011596,0.988404] from initial state: 3.321546
+
+Adversary written to file "policy11.txt".
+Optimising weighted sum of objectives: weights (0.017904606686370134, 0.9820953933136298)
+Iterative method: 24 iterations in 0.56 seconds (average 0.023167, setup 0.00)
+Optimal value for weights [0.017905,0.982095] from initial state: 6.071361
+
+Adversary written to file "policy12.txt".
+Optimising weighted sum of objectives: weights (0.07669758657153826, 0.9233024134284618)
+Iterative method: 24 iterations in 0.56 seconds (average 0.023167, setup 0.00)
+Optimal value for weights [0.076698,0.923302] from initial state: 32.573887
+
+Adversary written to file "policy13.txt".
+Optimising weighted sum of objectives: weights (0.016720392062835755, 0.9832796079371643)
+Iterative method: 24 iterations in 0.55 seconds (average 0.023000, setup 0.00)
+Optimal value for weights [0.016720,0.983280] from initial state: 5.547553
+
+Adversary written to file "policy14.txt".
+Optimising weighted sum of objectives: weights (0.02073030086719755, 0.9792696991328025)
+Iterative method: 24 iterations in 0.55 seconds (average 0.022833, setup 0.00)
+Optimal value for weights [0.020730,0.979270] from initial state: 7.333622
+
+Adversary written to file "policy15.txt".
+Optimising weighted sum of objectives: weights (0.02789434048988526, 0.9721056595101147)
+Iterative method: 24 iterations in 0.56 seconds (average 0.023167, setup 0.00)
+Optimal value for weights [0.027894,0.972106] from initial state: 10.556069
+
+Adversary written to file "policy16.txt".
+Optimising weighted sum of objectives: weights (0.11764705882351278, 0.8823529411764872)
+Iterative method: 24 iterations in 0.58 seconds (average 0.024000, setup 0.00)
+Optimal value for weights [0.117647,0.882353] from initial state: 51.048438
+
+Adversary written to file "policy17.txt".
+The value iteration(s) took 10.305 seconds altogether.
+Number of weight vectors used: 19
+Multi-objective value iterations took 10.305 s.
+
+Value in the initial state: [(268.0401714607421, 0.42268749999999994), (189.5774319160156, -0.0), (303.58219686748043, 0.6187187499999998), (345.18021755810537, 0.85286875), (431.9521108286132, 1.70704231484375), (401.0209992563475, 1.34416614296875), (355.98219068066396, 0.9189259375), (367.1175102460936, 0.99771109375), (384.8868051997069, 1.1697424234374998), (449.1261876295897, 2.028595671523437), (448.3184153932616, 2.005416839492187), (450.0, 2.145103987578124), (433.9118637624022, 1.7366611039062498), (443.4989907331053, 1.9033937468749995), (446.7219455592772, 1.967852843398437)]
+
+Time for model checking: 24.717 seconds.
+
+Result: [(268.0401714607421, 0.42268749999999994), (189.5774319160156, -0.0), (303.58219686748043, 0.6187187499999998), (345.18021755810537, 0.85286875), (431.9521108286132, 1.70704231484375), (401.0209992563475, 1.34416614296875), (355.98219068066396, 0.9189259375), (367.1175102460936, 0.99771109375), (384.8868051997069, 1.1697424234374998), (449.1261876295897, 2.028595671523437), (448.3184153932616, 2.005416839492187), (450.0, 2.145103987578124), (433.9118637624022, 1.7366611039062498), (443.4989907331053, 1.9033937468749995), (446.7219455592772, 1.967852843398437)] (value in the initial state)
+
+---------------------------------------------------------------------
+
+Note: There were 2 warnings during computation.
+
