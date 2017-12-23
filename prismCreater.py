@@ -1,7 +1,7 @@
 import numpy as np
 
 vertices = [1,2,3,4,5,6,7,8,9,10,11,12]  #array of vertices
-numVertices =12 #number of vertices
+numVertices = 7 #number of vertices
 type = 'mdp'    #type of Prism model being made
 lowCost = 2     #minimum distance cost
 highCost = 4    #maximum distance cost
@@ -18,13 +18,13 @@ right = 0.7
 #Constants
 #Distance Constants
 for b in range(0, numVertices+1):
-    for a in range(b,numVertices+1):
+    for a in range(1,numVertices+1):
         if a != b:
-           cost = np.random.random_integers(lowCost, high=highCost)
-           file.write('const int D' + repr(b) + repr(a) + ' = ' + repr(cost) + ';\n')
-#             if b<a:
-#                 file.write('[] uav = site' + repr(b) + ' & uav_battery > -1-> ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(b) + repr(a) + ' - 1) + ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(b) + repr(a) +' + 1) + ' + repr(right) + ':(uav\' = site'+ repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(b) + repr(a) +');\n')
-#             else: #a>b
-#                 file.write('[] uav = site' + repr(b) + ' & uav_battery > -1-> ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(a) + repr(b) + ' - 1) + ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(a) + repr(b) +' + 1) + ' + repr(right) + ':(uav\' = site'+ repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(a) + repr(b) +');\n')
+#           cost = np.random.random_integers(lowCost, high=highCost)
+#           file.write('const int D' + repr(b) + repr(a) + ' = ' + repr(cost) + ';\n')
+             if b<a:
+                 file.write('[] uav = site' + repr(b) + ' & uav_battery > -1-> ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(b) + repr(a) + ' - 1) + ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(b) + repr(a) +' + 1) + ' + repr(right) + ':(uav\' = site'+ repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(b) + repr(a) +');\n')
+             else: #a>b
+                 file.write('[] uav = site' + repr(b) + ' & uav_battery > -1-> ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(a) + repr(b) + ' - 1) + ' + repr(wrong) + ':(uav\' = site' + repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(a) + repr(b) +' + 1) + ' + repr(right) + ':(uav\' = site'+ repr(a) + ') & (uav_battery\' = uav_battery - D'+ repr(a) + repr(b) +');\n')
 
 file.close()
